@@ -95,7 +95,7 @@ module "ecs_task_execution_role" {
   environment          = local.environment
 }
 
-# create ecs cluster, task definition and service
+# Create ecs cluster, task definition and service
 module "ecs" {
   source                       = "git@github.com:pdnt/terraform-modules.git//ecs"
   project_name                 = local.project_name
@@ -110,4 +110,12 @@ module "ecs" {
   private_app_subnet_az2_id    = module.vpc.private_app_subnet_az1_id
   app_server_security_group_id = module.security_group.app_server_security_group_id
   alb_target_group_arn         = module.application_load_balancer.alb_target_group_arn
+}
+
+# Create auto scaling group
+module "ecs_asg" {
+  source = "git@github.com:pdnt/terraform-modules.git//asg-ecs"
+  project_name = local.project_name
+  environment = local.environment
+  ecs_service = module.ecs.ecs_service
 }
