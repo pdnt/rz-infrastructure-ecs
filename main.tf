@@ -114,8 +114,22 @@ module "ecs" {
 
 # Create auto scaling group
 module "ecs_asg" {
-  source = "git@github.com:pdnt/terraform-modules.git//asg-ecs"
+  source       = "git@github.com:pdnt/terraform-modules.git//asg-ecs"
   project_name = local.project_name
-  environment = local.environment
-  ecs_service = module.ecs.ecs_service
+  environment  = local.environment
+  ecs_service  = module.ecs.ecs_service
+}
+
+# Create record set in route 53
+module "route_53" {
+  source                             = "git@github.com:pdnt/terraform-modules.git//route-53"
+  domain_name                        = module.ssl_certificate.domain_name
+  record_name                        = var.record_name
+  application_load_balancer_dns_name = module.application_load_balancer.application_load_balancer_dns_name
+  application_load_balancer_zone_id  = module.application_load_balancer.application_load_balancer_zone_id
+}
+
+# Print the website URL
+output "website_url" {
+  value = join("", ["https://", var.record_name, ".", var.domain_name])
 }
