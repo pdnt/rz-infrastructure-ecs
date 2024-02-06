@@ -13,6 +13,10 @@ This project aims to demonstrate how to deploy a dynamic web application on Amaz
 - ECS for managing application workloads
 - Scalable and resilient architecture for hosting dynamic web applications
 
+## Terraform Modules
+
+The Terraform modules used in this project are stored in a separate repository located at [pdnt/terraform-modules](https://github.com/pdnt/terraform-modules). These modules provide reusable infrastructure components for provisioning AWS resources.
+
 ## Project Structure
 
 - `main.tf`: Main Terraform configuration file containing infrastructure provisioning code.
