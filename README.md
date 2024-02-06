@@ -4,7 +4,7 @@
 
 This project aims to demonstrate how to deploy a dynamic web application on Amazon Web Services (AWS) infrastructure using modern DevOps practices. By leveraging Terraform for infrastructure provisioning, Docker for containerization, Amazon ECR for image storage, and ECS for container orchestration, this project showcases a robust and scalable solution for hosting web applications on AWS.
 
-![diagram.png](https://github.com/pdnt/rz-infrastructure-ecs/diagram.png?raw=true)
+![diagram.png](https://github.com/pdnt/rz-infrastructure-ecs/diagram.png)
 
 ## Features
 
