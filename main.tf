@@ -81,18 +81,21 @@ module "application_load_balancer" {
 
 # Create s3 bucket
 module "s3_bucket" {
-  source               = "git@github.com:pdnt/terraform-modules.git//s3"
-  project_name         = local.project_name
-  env_file_bucket_name = var.env_file_bucket_name
-  env_file_name        = var.env_file_name
+  source                  = "git@github.com:pdnt/terraform-modules.git//s3"
+  project_name            = local.project_name
+  env_file_bucket_name    = var.env_file_bucket_name
+  env_file_name           = var.env_file_name
+  block_public_acls       = var.block_public_acls
+  block_public_policy     = var.block_public_policy
+  ignore_public_acls      = var.ignore_public_acls
+  restrict_public_buckets = var.restrict_public_buckets
 }
 
 # Create logging bucket
 module "s3-logging" {
-  source = "git@github.com:pdnt/terraform-modules.git//s3-logging"
-  project_name = local.project_name
-  env_file_bucket_name = module.s3_bucket.var.env_file_bucket_name
-  env_file_name        = module.s3_bucket.var.env_file_name
+  source               = "git@github.com:pdnt/terraform-modules.git//s3-logging"
+  project_name         = local.project_name
+  env_file_bucket_name = module.s3_bucket.env_file_bucket_name
 }
 
 # Create ecs task execution role
