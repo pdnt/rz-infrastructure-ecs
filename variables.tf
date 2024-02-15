@@ -31,6 +31,10 @@ variable "target_type" {}
 # s3 variables
 variable "env_file_bucket_name" {}
 variable "env_file_name" {}
+variable "block_public_acls" {}
+variable "block_public_policy" {}
+variable "ignore_public_acls" {}
+variable "restrict_public_buckets" {}
 
 # ecs variables
 variable "architecture" {}
@@ -38,3 +42,4 @@ variable "container_image" {}
 
 # Route 53 variables
 variable "record_name" {}
+
