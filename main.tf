@@ -91,17 +91,6 @@ module "s3_bucket" {
   restrict_public_buckets = var.restrict_public_buckets
 }
 
-# Create logging bucket
-module "s3-logging" {
-  source                  = "git@github.com:pdnt/terraform-modules.git//s3-logging"
-  project_name            = local.project_name
-  env_file_bucket_name    = module.s3_bucket.env_file_bucket_name
-  block_public_acls       = var.block_public_acls
-  block_public_policy     = var.block_public_policy
-  ignore_public_acls      = var.ignore_public_acls
-  restrict_public_buckets = var.restrict_public_buckets
-}
-
 # Create ecs task execution role
 module "ecs_task_execution_role" {
   source               = "git@github.com:pdnt/terraform-modules.git//iam-role"
