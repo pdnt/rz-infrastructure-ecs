@@ -89,6 +89,8 @@ module "s3_bucket" {
   block_public_policy     = var.block_public_policy
   ignore_public_acls      = var.ignore_public_acls
   restrict_public_buckets = var.restrict_public_buckets
+  vpc_id                  = module.vpc.vpc_id
+
 }
 
 # Create ecs task execution role
