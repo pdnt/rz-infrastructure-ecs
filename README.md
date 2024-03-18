@@ -34,7 +34,7 @@ docker push <repository-uri>
 
 Next, clone this repository and the necessary modules. The Terraform modules used in this project are stored in a separate repository located at [pdnt/terraform-modules](https://github.com/pdnt/terraform-modules).
 
-Finally, you need to create 2 files that will contain environment variables.
+Finally, you need to create 2 files that will contain environment variables. They should be created in the folder where you cloned this repository.
 The first file will be named ***rentzone.env*** and it's associated with the S3 bucket that will contain our template and the necessary information to connect to the RDS instance.
 Fill in the empty variables with the values specific to your deployment.
 
