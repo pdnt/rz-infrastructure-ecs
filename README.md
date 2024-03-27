@@ -39,7 +39,7 @@ The first file will be named ***rentzone.env*** and it's associated with the S3 
 Fill in the empty variables with the values specific to your deployment.
 
 ```
-PERSONAL_ACCESS_TOKEN=[Replace me with an access token]
+PERSONAL_ACCESS_TOKEN=[Replace me with a GitHub access token]
 GITHUB_USERNAME=[Replace me with your github username]
 REPOSITORY_NAME=[Replace me with the name of your repository containing the files from this repository]
 WEB_FILE_ZIP=rentzone.zip
@@ -47,12 +47,14 @@ WEB_FILE_UNZIP=rentzone
 DOMAIN_NAME=[Replace me with your domain name. For example: www.pablodip.me]
 RDS_ENDPOINT=[Replace me with the RDS Endpoint]
 RDS_DB_NAME=[Replace me with the name of the RDS Database]
-RDS_MASTER_USERNAME=[Replace me with the name of the RDS Database username]
-RDS_DB_PASSWORD=[Replace me with the name of the RDS Database password]
+RDS_MASTER_USERNAME=azeezs
+RDS_DB_PASSWORD=azeezs123
 ```
+> Note: The RDS password is insecure. This Docker image was built just for demonstration purposes.
+> Credential Access consists of techniques for stealing credentials like account names and passwords. Read more about the techniques used to obtain credentials here: [MITRE ATT&CK](https://attack.mitre.org/tactics/TA0006/)
 
 The second file will be named ***terraform.tfvars*** and will assign values to all of our Terraform variables.
-Fill in the empty variables with the values specific to your deployment.
+Fill in the empty variables with the values specific to your deployment. 
 
 ```
 # VPC variables
